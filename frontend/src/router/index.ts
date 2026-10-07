@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import Dashboard from '@/views/Dashboard.vue'
+const Access = () => import('@/views/access/index.vue')
 const Weighbridge = () => import('@/views/weighbridge/index.vue')
 const Pit = () => import('@/views/pit/index.vue')
 const Incinerator = () => import('@/views/incinerator/index.vue')
@@ -24,6 +25,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', name: 'dashboard', component: Dashboard },
+    { path: '/access', name: 'access', component: Access },
     { path: '/weighbridge', name: 'weighbridge', component: Weighbridge },
     { path: '/pit', name: 'pit', component: Pit },
     { path: '/incinerator', name: 'incinerator', component: Incinerator },

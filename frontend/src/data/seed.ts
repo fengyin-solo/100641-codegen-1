@@ -1,6 +1,8 @@
 import type { EntryRow } from './types'
 
 // 示例数据：首次打开时播种，之后浏览器里的改动优先，重置才会回到这份。
+// 进厂待核清单的示例车辆与准入台账（access）里的准运状态一一对应，
+// 单独放在 "weighbridge-extra"，播种前合并进 weighbridge，local-store 仍只读标准键。
 export const SEED_ROWS: Record<string, EntryRow[]> = {
   "weighbridge": [
     {
@@ -794,4 +796,181 @@ export const SEED_ROWS: Record<string, EntryRow[]> = {
       "培训状态": "安全培训管理样例3"
     }
   ],
+  "weighbridge-extra": [
+    {
+      "id": 101,
+      "status": "待过磅",
+      "pending": true,
+      "abnormal": false,
+      "计量单号": "WEIG-0101",
+      "进场车牌": "粤B·D5688",
+      "承运单位": "洁城环卫运输有限公司",
+      "垃圾来源": "洁城环卫运输有限公司",
+      "毛重": "",
+      "皮重": "",
+      "净重": "",
+      "过磅时间": "2026-10-07",
+      "计量状态": "待过磅"
+    },
+    {
+      "id": 102,
+      "status": "待过磅",
+      "pending": true,
+      "abnormal": false,
+      "计量单号": "WEIG-0102",
+      "进场车牌": "粤BD5690",
+      "承运单位": "洁城环卫运输有限公司",
+      "垃圾来源": "洁城环卫运输有限公司",
+      "毛重": "",
+      "皮重": "",
+      "净重": "",
+      "过磅时间": "2026-10-07",
+      "计量状态": "待过磅"
+    },
+    {
+      "id": 103,
+      "status": "待过磅",
+      "pending": true,
+      "abnormal": false,
+      "计量单号": "WEIG-0103",
+      "进场车牌": "粤B·D9999",
+      "承运单位": "顺通收运服务部",
+      "垃圾来源": "顺通收运服务部",
+      "毛重": "",
+      "皮重": "",
+      "净重": "",
+      "过磅时间": "2026-10-07",
+      "计量状态": "待过磅"
+    },
+    {
+      "id": 104,
+      "status": "已过磅",
+      "pending": true,
+      "abnormal": false,
+      "计量单号": "WEIG-0104",
+      "进场车牌": "粤B·E1023",
+      "承运单位": "绿源环境工程有限公司",
+      "垃圾来源": "绿源环境工程有限公司",
+      "毛重": "18.6",
+      "皮重": "8.1",
+      "净重": "10.5",
+      "过磅时间": "2026-10-07",
+      "计量状态": "已过磅"
+    },
+    {
+      "id": 105,
+      "status": "已复核",
+      "pending": false,
+      "abnormal": false,
+      "计量单号": "WEIG-0105",
+      "进场车牌": "粤BD5689",
+      "承运单位": "洁城环卫运输有限公司",
+      "垃圾来源": "洁城环卫运输有限公司",
+      "毛重": "19.2",
+      "皮重": "8.4",
+      "净重": "10.8",
+      "过磅时间": "2026-10-06",
+      "计量状态": "已复核"
+    }
+  ],
+  "access": [
+    {
+      "id": 1,
+      "status": "有效",
+      "daysLeft": 260,
+      "pending": false,
+      "abnormal": false,
+      "carrier": "洁城环卫运输有限公司",
+      "plate": "粤B·D5688",
+      "permitNo": "粤环运准字2026-0117",
+      "issuer": "深圳市城市管理和综合执法局",
+      "expireDate": "2027-06-24",
+      "registeredAt": "2026-01-10",
+      "permitVersion": 1,
+      "note": "主力收运线路"
+    },
+    {
+      "id": 2,
+      "status": "临期",
+      "daysLeft": 8,
+      "pending": true,
+      "abnormal": false,
+      "carrier": "洁城环卫运输有限公司",
+      "plate": "粤BD5690",
+      "permitNo": "粤环运准字2026-0063",
+      "issuer": "深圳市城市管理和综合执法局",
+      "expireDate": "2026-10-15",
+      "registeredAt": "2025-10-20",
+      "permitVersion": 2,
+      "note": "已通知换证，补录过一次新到期日"
+    },
+    {
+      "id": 3,
+      "status": "有效",
+      "daysLeft": 480,
+      "pending": false,
+      "abnormal": false,
+      "carrier": "洁城环卫运输有限公司",
+      "plate": "粤BD5689",
+      "permitNo": "粤环运准字2026-0205",
+      "issuer": "深圳市城市管理和综合执法局",
+      "expireDate": "2028-01-30",
+      "registeredAt": "2026-02-01",
+      "permitVersion": 1,
+      "note": ""
+    },
+    {
+      "id": 4,
+      "status": "已过期",
+      "daysLeft": -159,
+      "pending": true,
+      "abnormal": true,
+      "carrier": "顺通收运服务部",
+      "plate": "粤B·D7120",
+      "permitNo": "粤环运准字2025-0331",
+      "issuer": "深圳市城市管理和综合执法局",
+      "expireDate": "2026-05-01",
+      "registeredAt": "2025-05-02",
+      "permitVersion": 1,
+      "note": "历史台账导入：证已过期，门岗应禁止入厂"
+    },
+    {
+      "id": 5,
+      "status": "有效",
+      "daysLeft": 95,
+      "pending": false,
+      "abnormal": false,
+      "carrier": "绿源环境工程有限公司",
+      "plate": "粤B·E1023",
+      "permitNo": "粤环运准字2026-0412",
+      "issuer": "深圳市生态环境局",
+      "expireDate": "2027-01-10",
+      "registeredAt": "2026-03-15",
+      "permitVersion": 1,
+      "note": "同编号在不同发证机关下不冲突的演示"
+    },
+    {
+      "id": 6,
+      "status": "有效",
+      "daysLeft": 73,
+      "pending": false,
+      "abnormal": false,
+      "carrier": "绿源环境工程有限公司",
+      "plate": "粤B·E1024",
+      "permitNo": "粤环运准字2026-0412",
+      "issuer": "广州市生态环境局",
+      "expireDate": "2026-12-19",
+      "registeredAt": "2026-04-01",
+      "permitVersion": 1,
+      "note": "跨市线路，编号相同发证机关不同，允许并存"
+    }
+  ],
 }
+
+// 进厂计量额外样例并入主清单：待过磅/已过磅车辆会出现在「进厂待核清单」里，
+// 准入状态实时从 access 台账同步，不在这里写死。
+SEED_ROWS["weighbridge"] = [
+  ...(SEED_ROWS["weighbridge"] ?? []),
+  ...(SEED_ROWS["weighbridge-extra"] ?? []),
+]
+delete SEED_ROWS["weighbridge-extra"]
